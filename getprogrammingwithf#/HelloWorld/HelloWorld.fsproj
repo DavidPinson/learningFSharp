@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+	<UseWindowsForms>true</UseWindowsForms>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="fsharplint.json" />
+    <None Include="scripts\ScriptREPL.fsx" />
+    <Compile Include="Program.fs" />
+  </ItemGroup>
+
+  <Target Name="FSharpLint" AfterTargets="BeforeBuild">
+    <Exec Command="dotnet fsharplint -f msbuild lint --lint-config $(MSBuildThisFileDirectory)/fsharplint.json $(MSBuildProjectFullPath)" ConsoleToMsBuild="true" IgnoreExitCode="true" />
+  </Target>
+
+</Project>
