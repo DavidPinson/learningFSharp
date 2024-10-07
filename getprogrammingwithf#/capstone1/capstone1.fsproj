@@ -6,7 +6,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="Scratchpad.fsx" />
+    <Compile Include="Car.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
+
+  <ItemGroup />
 
 </Project>
